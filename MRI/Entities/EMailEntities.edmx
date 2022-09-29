@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MHCC_EmailModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Mail">
+          <Key>
+            <PropertyRef Name="MailId" />
+          </Key>
+          <Property Name="MailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmailDate" Type="datetime" />
+          <Property Name="EmailFrom" Type="nvarchar" MaxLength="250" />
+          <Property Name="EmailTo" Type="nvarchar" MaxLength="1024" />
+          <Property Name="EmailToCC" Type="nvarchar" MaxLength="1024" />
+          <Property Name="EmailToBCC" Type="nvarchar" MaxLength="1024" />
+          <Property Name="EmailSubject" Type="nvarchar" MaxLength="250" />
+          <Property Name="EmailBody" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MailFailure">
+          <Key>
+            <PropertyRef Name="MailFailureID" />
+          </Key>
+          <Property Name="MailFailureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date of Failure" Type="datetime" Nullable="false" />
+          <Property Name="spid" Type="int" />
+          <Property Name="EmailFrom" Type="nvarchar" MaxLength="250" />
+          <Property Name="EmailTo" Type="nvarchar" MaxLength="1024" />
+          <Property Name="EmailToCC" Type="nvarchar" MaxLength="1024" />
+          <Property Name="EmailToBCC" Type="nvarchar" MaxLength="1024" />
+          <Property Name="EmailSubject" Type="nvarchar" MaxLength="250" />
+          <Property Name="EmailBody" Type="nvarchar(max)" />
+          <Property Name="iMsg" Type="int" />
+          <Property Name="HR" Type="int" />
+          <Property Name="Source of Failure" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description of Failure" Type="nvarchar" MaxLength="500" />
+          <Property Name="Output from Failure" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Comment about Failure" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="MHCC_EmailModelStoreContainer">
+          <EntitySet Name="Mail" EntityType="Self.Mail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailFailure" EntityType="Self.MailFailure" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MHCC_EmailModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Mail">
+          <Key>
+            <PropertyRef Name="MailId" />
+          </Key>
+          <Property Name="MailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailDate" Type="DateTime" Precision="3" />
+          <Property Name="EmailFrom" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EmailTo" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="EmailToCC" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="EmailToBCC" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="EmailSubject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EmailBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MailFailure">
+          <Key>
+            <PropertyRef Name="MailFailureID" />
+          </Key>
+          <Property Name="MailFailureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_of_Failure" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="spid" Type="Int32" />
+          <Property Name="EmailFrom" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EmailTo" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="EmailToCC" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="EmailToBCC" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="EmailSubject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EmailBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="iMsg" Type="Int32" />
+          <Property Name="HR" Type="Int32" />
+          <Property Name="Source_of_Failure" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Description_of_Failure" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Output_from_Failure" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Comment_about_Failure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="MHCC_EmailEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Mails" EntityType="Self.Mail" />
+          <EntitySet Name="MailFailures" EntityType="Self.MailFailure" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MHCC_EmailModelStoreContainer" CdmEntityContainer="MHCC_EmailEntities">
+          <EntitySetMapping Name="Mails">
+            <EntityTypeMapping TypeName="MHCC_EmailModel.Mail">
+              <MappingFragment StoreEntitySet="Mail">
+                <ScalarProperty Name="MailId" ColumnName="MailId" />
+                <ScalarProperty Name="EmailDate" ColumnName="EmailDate" />
+                <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+                <ScalarProperty Name="EmailTo" ColumnName="EmailTo" />
+                <ScalarProperty Name="EmailToCC" ColumnName="EmailToCC" />
+                <ScalarProperty Name="EmailToBCC" ColumnName="EmailToBCC" />
+                <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+                <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailFailures">
+            <EntityTypeMapping TypeName="MHCC_EmailModel.MailFailure">
+              <MappingFragment StoreEntitySet="MailFailure">
+                <ScalarProperty Name="MailFailureID" ColumnName="MailFailureID" />
+                <ScalarProperty Name="Date_of_Failure" ColumnName="Date of Failure" />
+                <ScalarProperty Name="spid" ColumnName="spid" />
+                <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+                <ScalarProperty Name="EmailTo" ColumnName="EmailTo" />
+                <ScalarProperty Name="EmailToCC" ColumnName="EmailToCC" />
+                <ScalarProperty Name="EmailToBCC" ColumnName="EmailToBCC" />
+                <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+                <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+                <ScalarProperty Name="iMsg" ColumnName="iMsg" />
+                <ScalarProperty Name="HR" ColumnName="HR" />
+                <ScalarProperty Name="Source_of_Failure" ColumnName="Source of Failure" />
+                <ScalarProperty Name="Description_of_Failure" ColumnName="Description of Failure" />
+                <ScalarProperty Name="Output_from_Failure" ColumnName="Output from Failure" />
+                <ScalarProperty Name="Comment_about_Failure" ColumnName="Comment about Failure" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

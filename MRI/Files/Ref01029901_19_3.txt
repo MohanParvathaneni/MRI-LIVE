@@ -1,0 +1,110 @@
+010299015101005762PAYTON              GLADSTONE                        247             NORTH BOUND GRATIOT                                      MT CLEMENS          MI48043    1
+010299015101005786SHERBIN             MICHAEL                          309             NORTH BOUND GRATIOT                                      MT CLEMENS          MI48043    1
+010299015101012581KEHOE               JAMES                            36500           GRATIOT                                                  CLINTON             MI48035    1
+010299015101013229FROCILLO            CHRISTOPHER                      66440           GRATIOT                                                  LENOX               MI48050    1
+010299015101012296BURNHAM             JULIE                            1030            HARRINGTON                                               MT CLEMENS          AL48043    1
+010299015101019023ALLA                YILLI                            1000            HARRINGTON                  ST                           MOUNT CLEMENS       MI48043    1
+010299014301059614JENNINGS            NADINE                           1560            MAPLE RD                                                 TROY                MI48083    1
+010299015101011659PRZYBYLSKI          ALBERT                           36549           HARPER                                                   CLINTON TOWNSHIP    MI48035    1
+010299015101013550YAISH               AMJAD                            21620           HARRINGTON                                               CLINTON TOWNSHIP    MI48036    1
+010299014301054932DALATI              SARIH                            22850     C     KELLEY RD                                                EASTPOINTE          MI48021    1
+010299014301081840ARDESHNA            NIKESH                           3555            W 13 MILE RD                N120                         ROYAL OAK           MI48073    1
+010299014301081840ARDESHNA            NIKESH                           3555            W 13 MILE RD                N120                         ROYAL OAK           MI48073    1
+010299014301094657WEST                TAMMY                            13425           19 MILE RD                  100                          STERLING HEIGHTS    MI48313    1
+010299015101014297MCMANN              SHANNON                          36500           GRATIOT                                                  CLINTON TWP         MI48036    1
+010299015315120111AJLOUNI             ALEXANDER                        21550           HARRINGTON BOULEVARD                                     CLINTON TOWNSHIP    MI48036    1
+010299015101013537KOBY                GREGORY                          6000            24 MILE                                                  SHELBY TWP          MI48316    1
+010299015101013435STEINBOCK           ALEX                             1030            HARRINGTON                                               MT CLEMENS          MI48043    1
+010299014301101450MILSHTEYN           MICHAEL                          1030            HARRINGTON                                               MT CLEMENS          MI48043    1
+010299015101013237NICHOLAS            CHRISTOPHER                      21550           HARRINGTON                                               CLINTON TWP         MI48036    1
+010299015101014612HIGLEY              LISA                             36539           HARPER AVE                                               CLINTON TOWNSHIP    MI48035    1
+010299015315126357HANLON              KEVIN                            21550           HARRINGTON ST. A                                         CLINTON TOWNSHIP    MI48036    1
+010299014301088745GAMARRA             FERNANDO                         16001           W. NINE MILE RD                                          SOUTHFIELD          MI48075    1
+010299014301027467JOHNSON             BRUCE                            30550           UTICA RD.                                                ROSEVILLE           MI48066    1
+010299014301093287THAKUR              ANAND                            15945           19MILE RD.                                               CLINTON TOWNSHIP    MI48038    1
+010299014301106661MARKUS              JOHNATHON                        37399           GARFIELD RD.                                             CLINTON TOWNSHIP    MN48036    1
+010299014301086387RAMOS               JASON                            46              N SAGINAW ST.                                            PONTIAC             MI48342    1
+010299014301405986POLLINA             JOHN                             25311           LITTLE MACK AVE                                          ST CLAIR SHORES     MI48081    1
+010299015101010735MEISEL              RONALD                           16570           19 MILE RD                                               CLINTON TWP         MI48038    1
+010299015101014248KNECHTL             FRANK                            1080            HARRINGTON ST #20                                        MT. CLEMENS         MI48043    1
+010299014301098994GIBSON              JOSHUA                           36500           S GRATIOT                                                CLINTON TWP         MI48035    1
+010299014301092146CLELAND             KIRK                             23829           LITTLE MACK AVE #100                                     ST. CLAIR SHORES    MI48080    1
+010299015101012127EVKOSKA             VESNA                            6000            24 MILE RD.                                              SHELBY TWP          MI48316    1
+010299015101012049CICHOWLAS           MICHAEL                          13951           PLUMBROOK RD.                                            STERLING HEIGHTS    MI48312    1
+010299015101010729GUN                 SAMUEL                           37399           GARFIELD                    RD                           CLINTON CHARTER TWP MI48036    1
+010299015101009745SCHNURER            CHRISTOPHER                      33720           HARPER                      AVE                          CLINTON TWP         MI48035    1
+010299015101024050YU                  KARINE                           23829           LITTLE MACK AVE                                          ST CLAIR SHORES     MI48080    1
+010299015151011657BANDA               DEVON                            1000            HARRINGTON                                               MT CLEMENS          MI48043    1
+010299015101007358DE MELLO            DAVID                            39379           GARFIELD                                                 CLINTON TWP         MI48038    1
+010299015101007353TROSIN              CYNTHIA                          35103           SILVANO                     ST                           CLINTON CHARTER TWP MI48036    1
+010299014704218294RICHARDSON          DEBORAH                          2331            PROGRESS ST                                              WEST BRANCH         MI48661    0
+010299015101019867MARSTON             KATHERINE                        32901           23 MILE                     RD                           BALTIMORE           MI48047    1
+010299015101014238ZIMMERMAN           ERIC                             1030            HARRINGTON                                               MT CLEMENS          MI48043    1
+010299015101015258CUCCHI              ANTHONY                          1030            HARRINGTON                                               MT CLEMENS          MI48043    1
+010299015101020940KASSA               JOSEPH                           39581           GARFIELD                                                 CLINTON TWP         MI48038    1
+010299015101018806WAGNER              MICHAEL             A            38525           HILLDALE                                                 CLINTON TWP         MI48036    1
+010299014301059048ZINGAS              CHRISTOPHER         N            45441           HEYDENREICH                                              MACOMB              MI48044    1
+010299015101021985WIXON               KRISTINA                         6000            24 MILE                     RD                           SHELBY CHARTER TWP  MI48316    1
+010299014704272631BOWDEN              ASHLEY                           19701           VERNIER                     RD                           DETROIT             MI48225    0
+010299014301119075KEMP                ALYSIA                           1080            HARRINGTON                  BLVD                         MOUNT CLEMENS       MI48043    1
+010299014301108040JACOB               JEFFREY                          25500           MEADOWBROOK                 RD                           NOVI                MI48375    1
+010299014301067838MORSON              TRACEY                           46813           GRARFIELD                   RD                           MACOMB              MI48044    1
+010299014704219489RUEL                JENNIFER                         3500            15 MILE                                                  STERLING HEIGHTS    MI48310    0
+010299014301054727CHANG               ROBERT              A            133             MAIN                                                     MT CLEMENS          MI48043    1
+010299014301111179DILLON              GEORGE                           34025           HARPER                      AVE                          CLINTON TWP         MI48035    1
+010299015101016677GRIFFIN             GEORGIA                          1030            HARRINGTON                  ST                           MOUNT CLEMENS       MI48043    1
+010299014301097800ROTH                KATHERINE                        46401           ROMEO PLANK                 RD                           MACOMB              MI48044    0
+010299014301101414HALL                ANTWAN                           2799            W GRAND BLVD                                             DETROIT             MI48202    1
+010299015151004925GARCIA-RIOS         KIRK                             46401           ROMEO PLANK                 RD                           MACOMB              MI48044    1
+010299015101017809UYEMATSU            ELIZABETH                        1000            HARRINGTON                  ST                           MOUNT CLEMENS       MI48043    1
+010299015101009509SWETECH             STEPHEN                          43600           GARFIELD                    RD                           CLINTON TWP         MI48038    1
+010299014301087917BANDAGI             AMTUL                            44405           WOODWARD                    AVE                          PONTIAC             MI48341    1
+010299015101017807ORILLE              EMILY                            4041            DUKESHIRE                   HWY                          ROYAL OAK           MI48073    1
+010299014704234407SCHOMER             CHRISTINE                        29275           NORTHWESTERN HWY                                         SOUTHFIELD          MI48034    0
+010299014301407495GRAVES              THOMAS                           34301           23 MILE                                                  NEW BALTIMORE       MI48043    1
+010299015101021571RADZIOCH            ANGELICA                         35103           SILVANO                                                  CLINTON TWP         MI48035    1
+010299014301082157COLOMBO             ANTONINO                         36267           26 MILE                                                  LENOX               MI48048    1
+010299014301072657CASEY               NINA                             239             MAIN                        ST                           ROMEO               MI48065    1
+010299014301065335MUNK                ANDRES                           11900           12 MILE                                                  WARREN              MI48093    1
+010299015101011870RISE                JENIFER                          37399           GARFIELD                    RD                           CLINTON TWP         MI48036    1
+010299015101018835BAKER               ERIN                             35111           DODGE PARK                                               STERLING HEIGHTS    MI48312    1
+010299014724224979SCHUNEMANN          CHRISTIE                         30550           UTICA                       RD                           ROSEVILLE           MI48066    0
+010299014301070895LANGENBURG          LISA                             37399           GARFIELD                    RD                           CLINTON TWP         MI48036    1
+010299015101017265BILBEISI            RANA                             1080            HARRINGTON                                               MT CLEMENS          MI48043    1
+010299015101016121FLAHERTY            PATRICK                          1000            HARRINGTON                                               MT CLEMENS          MI48036    1
+010299014301055857FRAZIER             ARTHUR                           1000      ST    HARRINGTON                                               MY CLEMENS          MI48043    1
+010299015101008312KOVAN               BRUCE                            37399           GARFIELD                                                 CLINTON TWP         MI48036    1
+010299014704267009ORSINI              JESSICA                          1000            HARRINGTON                                               MOUNT CLEMENS       MI48043    0
+010299015101013152YOUNG               BRIAN                            37399           GARFIELD                                                 CLINTON TWP         MI48036    1
+010299014301046401IADEROSA            PASQUALE            B            30795           23 MILE                                                  CHESTERFIELD        MI48047    1
+010299015101013168REHMAN              NINA                             15520           19 MILE                                                  CLINTON TWP         MI48038    1
+010299015101018226CARSON              ROBERT                           16570           NINETEEN MILE               RD                           CLINTON TWP         MI48038    1
+010299014301094284MEMON               ANZA                             6777            W MAPLE                                                  WEST BLOOMFIELD TWP MI48322    1
+010299015101018805VITALE              CHRISTOPHER                      1030            HARRINGTON                                               MT CLEMENS          MI48043    1
+010299015101020039KIELESZEWSKI        KURITS                           36500           S GRATIOT                   RD                           CLINTON TWP         MI48035    1
+010299015101015319FISCHER             CAROL                            6300            N HAGGERTY                                               CANTON              MI48187    1
+010299015101017430QUIROGA             MARTIN                           50              N PERRY                     AVE                          PONTIAC             MI48341    1
+010299014704271527FRANCEK             ELIZABETH                        29275           NORTHWESTERN HWY                                         SOUTHFIELD          MI48034    1
+010299014704306129ROBINET             CHRISTINE                        36267           26 MILE RD                                               LENOX               MI48048    1
+010299015101013624VORA                SANJAY                           15520           19 MILE RD                                               CLINTON TWP         MI48038    1
+010299014301081019FERGUSON            EDRICK                           8560            SILVERY                                                  DEARBORN HEIGHTS    MI48127    1
+010299014301084402SINGH               ANIL                             30550           UTICA RD.                                                ROSEVILLE           MI48066    1
+010299015101013938CARROLL             JEFFREY                          43475           DALCOMA                     RD                           CLINTON TWP         MI48038    1
+010299015601006603MATOVSKI            ANNE                             28098           23 MILE RD                  RD                           CLINTON TWP         MI48051    1
+010299014301055760DUKAJ               MARK                             45640           SCHOENHERR                  RD                           SHELBY CHARTER TWP  MI48316    1
+010299015101006993KANER               JAY                              39581           GARFIELD                    RD                           CLINTON TWP         MI48051    1
+010299014301086512MAJJHOO             ANIEL                            45640           SCHOENERR                   RD                           SHELBY CHARTER TWP  MI48316    1
+010299015101011400CRAIG               RUSSELL                          17901           HALL                        RD                           MACOMB              MI48044    1
+010299014301049599PORTER              PAUL                             1080            HARRINGTON ST.                                           MT. CLEMENS         MI48043    1
+010299015101015606HAQUE               SADIQ                            28800           RYAN RD                         SUITE 120                WARREN              MI48092    1
+010299015901002613PATTERSON           KRISTEN                          42550           GARFIELD RD.                RD                           CLINTON TWP         MI48038    1
+010299015101008465PULS                MARY                             36539           HARPER                                                   CLINTON TWP         MI48035    1
+010299014301113636HOTALING            JEFFREY                          1080            HARRINGTON                                               MT CLEMENS          MI48043    1
+010299015101007581EMERICK             KARL                J            32901           23 MILE                                                  CHESTERFIELD        MI48047    1
+01029901 510101433DUSEVIC             TAMMY                            19041           12 MILE                                                  ROSEVILLE           MI48066    1
+010299015101013294MC COWAN            ROBERT                           66440           GRATIOT                                                  NEW HAVEN           MI48050    1
+010299015601007790NAJARIAN            ALLISON                          5634            WHITEFIELD                                               TROY                MI48098    1
+010299014704209167HAWK                MAXINE                           5456            15 MILE                                                  STERLING HEIGHTS    MI48310    0
+010299014301091421DUVOOR              ANU                              15520           19 MILE RD                                               CLINTON TWP         MI48038    1
+010299014301090476THAMMINENI          DHEERAJ                          50505           SCHOENHERR                                               SHELBY TWP          MI48316    1
+010299014301071763VEYNA               RICHARD                          43475           DALCOMA                                                  CLINTON TWP         MI48038    1

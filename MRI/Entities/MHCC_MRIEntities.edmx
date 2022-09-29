@@ -1,0 +1,1663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MHCC_MRIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AgeCode">
+          <Key>
+            <PropertyRef Name="AgeCodeId" />
+          </Key>
+          <Property Name="AgeCodeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubmissionAgeCodeId" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AgeCodeDescripition" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClinicalStatus">
+          <Key>
+            <PropertyRef Name="ClinicalStatusId" />
+          </Key>
+          <Property Name="ClinicalStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClinicalStatusCode" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ClinicalStatusDescription" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="County">
+          <Key>
+            <PropertyRef Name="CountyId" />
+          </Key>
+          <Property Name="CountyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="CountyCode" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="CountyName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ExcludeZipCode" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CountyZipCodes">
+          <Key>
+            <PropertyRef Name="CountyZipCodeId" />
+          </Key>
+          <Property Name="CountyZipCodeId" Type="int" Nullable="false" />
+          <Property Name="CountyId" Type="int" Nullable="false" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OraclePatientExport">
+          <Key>
+            <PropertyRef Name="OraclePatientExportId" />
+          </Key>
+          <Property Name="OraclePatientExportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateOfScan" Type="datetime" Nullable="false" />
+          <Property Name="PatientName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="MedicalRecordNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="DescriptionOfScan" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sex" Type="int" />
+          <Property Name="ZipCode" Type="char" MaxLength="5" />
+          <Property Name="PatientStatus" Type="int" />
+          <Property Name="PatientDOB" Type="datetime" />
+          <Property Name="AgeOfPatient" Type="int" />
+          <Property Name="AgeCode" Type="char" MaxLength="1" />
+          <Property Name="MainSiteCode" Type="varchar" MaxLength="50" />
+          <Property Name="County" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PatientStatus">
+          <Key>
+            <PropertyRef Name="PatientStatusId" />
+          </Key>
+          <Property Name="PatientStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientStatusCode" Type="char" MaxLength="1" />
+          <Property Name="PatientStatusDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Physician">
+          <Key>
+            <PropertyRef Name="PhysicianId" />
+          </Key>
+          <Property Name="PhysicianId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhysicianSpecialtyId" Type="int" Nullable="false" />
+          <Property Name="LicenseNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="20" />
+          <Property Name="Suffix" Type="varchar" MaxLength="3" />
+          <Property Name="AddressNumber" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AddressNumberSuffix" Type="varchar" MaxLength="6" />
+          <Property Name="AddressLine1" Type="varchar" MaxLength="28" Nullable="false" />
+          <Property Name="AddressSuffixType" Type="varchar" MaxLength="4" />
+          <Property Name="AddressLine2" Type="varchar" MaxLength="25" />
+          <Property Name="City" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="ZipCodeExtension" Type="varchar" MaxLength="4" />
+          <Property Name="PhysicianLicensureId" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhysicianLicensure">
+          <Key>
+            <PropertyRef Name="PhysicianLicensureId" />
+          </Key>
+          <Property Name="PhysicianLicensureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhysicianLicensureCode" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PhysicianLicensureDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhysicianPrefixCode">
+          <Key>
+            <PropertyRef Name="PhysicianPrefixCodesId" />
+          </Key>
+          <Property Name="PhysicianPrefixCodesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PrefixCode" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="PrefixName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhysicianSite">
+          <Key>
+            <PropertyRef Name="PhysicianSiteId" />
+          </Key>
+          <Property Name="PhysicianSiteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhysicianId" Type="int" Nullable="false" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhysicianSpecialty">
+          <Key>
+            <PropertyRef Name="PhysicianSpecialtyId" />
+          </Key>
+          <Property Name="PhysicianSpecialtyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhysicianSpecialtyCode" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Category1" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Category2" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Category3" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Scan">
+          <Key>
+            <PropertyRef Name="ScanId" />
+          </Key>
+          <Property Name="ScanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedByDisplayName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="CreatedByUserId" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+          <Property Name="DateOfScan" Type="datetime" Nullable="false" />
+          <Property Name="AgeOfPatient" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="AgeCodeId" Type="int" Nullable="false" />
+          <Property Name="SexId" Type="int" Nullable="false" />
+          <Property Name="ZipCode" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="CountyId" Type="int" Nullable="false" />
+          <Property Name="PatientStatusId" Type="int" Nullable="false" />
+          <Property Name="ClinicalStatusId" Type="int" Nullable="false" />
+          <Property Name="PhysicianSiteId" Type="int" Nullable="false" />
+          <Property Name="SourceOfPaymentId" Type="int" Nullable="false" />
+          <Property Name="PatientName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="250" />
+          <Property Name="MedicalRecordNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="ScanDescription" Type="nvarchar" MaxLength="250" />
+          <Property Name="ScanUpdated" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScanComplete">
+          <Key>
+            <PropertyRef Name="ScanCompleteId" />
+          </Key>
+          <Property Name="ScanCompleteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScanCompleteCode" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ScanCompleteDescription" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScanContrast">
+          <Key>
+            <PropertyRef Name="ScanContrastId" />
+          </Key>
+          <Property Name="ScanContrastId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScanContrastCode" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ScanContrastDescription" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScanRegion">
+          <Key>
+            <PropertyRef Name="ScanRegionId" />
+          </Key>
+          <Property Name="ScanRegionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScanRegionCode" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ScanRegionDescription" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScanResult">
+          <Key>
+            <PropertyRef Name="ScanResultId" />
+          </Key>
+          <Property Name="ScanResultId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScanId" Type="int" Nullable="false" />
+          <Property Name="ScanRegionId" Type="int" />
+          <Property Name="SedationId" Type="int" />
+          <Property Name="ScanContrastId" Type="int" />
+          <Property Name="ScanCompleteId" Type="int" />
+        </EntityType>
+        <EntityType Name="Sedation">
+          <Key>
+            <PropertyRef Name="SedationId" />
+          </Key>
+          <Property Name="SedationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SedationCode" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="SedationDescription" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sex">
+          <Key>
+            <PropertyRef Name="SexId" />
+          </Key>
+          <Property Name="SexId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SexCode" Type="int" Nullable="false" />
+          <Property Name="SexDescription" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sites">
+          <Key>
+            <PropertyRef Name="SiteId" />
+          </Key>
+          <Property Name="SiteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SiteName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="ServiceIdNumber" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="FromEmailAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="ToEmailAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmailSubject" Type="nvarchar" MaxLength="500" />
+          <Property Name="ADGroupAdmin" Type="nvarchar" MaxLength="250" />
+          <Property Name="ADGroupUserEntry" Type="nvarchar" MaxLength="250" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="ADGroupModifyEntry" Type="nvarchar" MaxLength="250" />
+          <Property Name="ADGroupSubmissionReport" Type="nvarchar" MaxLength="250" />
+          <Property Name="ADGroupReport" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="SourceOfPayment">
+          <Key>
+            <PropertyRef Name="SourceOfPaymentId" />
+          </Key>
+          <Property Name="SourceOfPaymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SourceCode" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="SourceName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="States">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateCode" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MHCC_MRI_Test.dbo.vwPhysicians' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwPhysicians">
+          <Key>
+            <PropertyRef Name="PhysicianId" />
+          </Key>
+          <Property Name="PhysicianId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="86" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MHCC_MRI_Test.dbo.vwPhysicianSpecialtyList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwPhysicianSpecialtyList">
+          <Key>
+            <PropertyRef Name="PhysicianSpecialtyId" />
+          </Key>
+          <Property Name="PhysicianSpecialtyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="129" />
+        </EntityType>
+        <Association Name="FK_County_States">
+          <End Role="States" Type="Self.States" Multiplicity="1" />
+          <End Role="County" Type="Self.County" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="County">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountyZipCodes_County">
+          <End Role="County" Type="Self.County" Multiplicity="1" />
+          <End Role="CountyZipCodes" Type="Self.CountyZipCodes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="County">
+              <PropertyRef Name="CountyId" />
+            </Principal>
+            <Dependent Role="CountyZipCodes">
+              <PropertyRef Name="CountyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Physician_PhysicianLicensure">
+          <End Role="PhysicianLicensure" Type="Self.PhysicianLicensure" Multiplicity="1" />
+          <End Role="Physician" Type="Self.Physician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhysicianLicensure">
+              <PropertyRef Name="PhysicianLicensureId" />
+            </Principal>
+            <Dependent Role="Physician">
+              <PropertyRef Name="PhysicianLicensureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Physician_PhysicianSpecialty">
+          <End Role="PhysicianSpecialty" Type="Self.PhysicianSpecialty" Multiplicity="1" />
+          <End Role="Physician" Type="Self.Physician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhysicianSpecialty">
+              <PropertyRef Name="PhysicianSpecialtyId" />
+            </Principal>
+            <Dependent Role="Physician">
+              <PropertyRef Name="PhysicianSpecialtyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Physician_States">
+          <End Role="States" Type="Self.States" Multiplicity="1" />
+          <End Role="Physician" Type="Self.Physician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="Physician">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicianPrefixCode_States">
+          <End Role="States" Type="Self.States" Multiplicity="1" />
+          <End Role="PhysicianPrefixCode" Type="Self.PhysicianPrefixCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="PhysicianPrefixCode">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicianSite_Physician">
+          <End Role="Physician" Type="Self.Physician" Multiplicity="1" />
+          <End Role="PhysicianSite" Type="Self.PhysicianSite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Physician">
+              <PropertyRef Name="PhysicianId" />
+            </Principal>
+            <Dependent Role="PhysicianSite">
+              <PropertyRef Name="PhysicianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicianSite_Sites">
+          <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+          <End Role="PhysicianSite" Type="Self.PhysicianSite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="SiteId" />
+            </Principal>
+            <Dependent Role="PhysicianSite">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_AgeCode">
+          <End Role="AgeCode" Type="Self.AgeCode" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeCode">
+              <PropertyRef Name="AgeCodeId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="AgeCodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_ClinicalStatus">
+          <End Role="ClinicalStatus" Type="Self.ClinicalStatus" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClinicalStatus">
+              <PropertyRef Name="ClinicalStatusId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="ClinicalStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_County">
+          <End Role="County" Type="Self.County" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="County">
+              <PropertyRef Name="CountyId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="CountyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_PatientStatus">
+          <End Role="PatientStatus" Type="Self.PatientStatus" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientStatus">
+              <PropertyRef Name="PatientStatusId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="PatientStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_PhysicianSite">
+          <End Role="PhysicianSite" Type="Self.PhysicianSite" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhysicianSite">
+              <PropertyRef Name="PhysicianSiteId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="PhysicianSiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_Sex">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="SexId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_Sites">
+          <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="SiteId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_SourceOfPayment">
+          <End Role="SourceOfPayment" Type="Self.SourceOfPayment" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SourceOfPayment">
+              <PropertyRef Name="SourceOfPaymentId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="SourceOfPaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScanResult_Scan">
+          <End Role="Scan" Type="Self.Scan" Multiplicity="1" />
+          <End Role="ScanResult" Type="Self.ScanResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scan">
+              <PropertyRef Name="ScanId" />
+            </Principal>
+            <Dependent Role="ScanResult">
+              <PropertyRef Name="ScanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScanResult_ScanComplete">
+          <End Role="ScanComplete" Type="Self.ScanComplete" Multiplicity="0..1" />
+          <End Role="ScanResult" Type="Self.ScanResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScanComplete">
+              <PropertyRef Name="ScanCompleteId" />
+            </Principal>
+            <Dependent Role="ScanResult">
+              <PropertyRef Name="ScanCompleteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScanResult_ScanContrast">
+          <End Role="ScanContrast" Type="Self.ScanContrast" Multiplicity="0..1" />
+          <End Role="ScanResult" Type="Self.ScanResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScanContrast">
+              <PropertyRef Name="ScanContrastId" />
+            </Principal>
+            <Dependent Role="ScanResult">
+              <PropertyRef Name="ScanContrastId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScanResult_ScanRegion">
+          <End Role="ScanRegion" Type="Self.ScanRegion" Multiplicity="0..1" />
+          <End Role="ScanResult" Type="Self.ScanResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScanRegion">
+              <PropertyRef Name="ScanRegionId" />
+            </Principal>
+            <Dependent Role="ScanResult">
+              <PropertyRef Name="ScanRegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScanResult_Sedation">
+          <End Role="Sedation" Type="Self.Sedation" Multiplicity="0..1" />
+          <End Role="ScanResult" Type="Self.ScanResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sedation">
+              <PropertyRef Name="SedationId" />
+            </Principal>
+            <Dependent Role="ScanResult">
+              <PropertyRef Name="SedationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sites_States">
+          <End Role="States" Type="Self.States" Multiplicity="1" />
+          <End Role="Sites" Type="Self.Sites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="Sites">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SourceOfPayment_States">
+          <End Role="States" Type="Self.States" Multiplicity="1" />
+          <End Role="SourceOfPayment" Type="Self.SourceOfPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="SourceOfPayment">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MHCC_MRIModelStoreContainer">
+          <EntitySet Name="AgeCode" EntityType="Self.AgeCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClinicalStatus" EntityType="Self.ClinicalStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="County" EntityType="Self.County" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountyZipCodes" EntityType="Self.CountyZipCodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OraclePatientExport" EntityType="Self.OraclePatientExport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientStatus" EntityType="Self.PatientStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Physician" EntityType="Self.Physician" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhysicianLicensure" EntityType="Self.PhysicianLicensure" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhysicianPrefixCode" EntityType="Self.PhysicianPrefixCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhysicianSite" EntityType="Self.PhysicianSite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhysicianSpecialty" EntityType="Self.PhysicianSpecialty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Scan" EntityType="Self.Scan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScanComplete" EntityType="Self.ScanComplete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScanContrast" EntityType="Self.ScanContrast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScanRegion" EntityType="Self.ScanRegion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScanResult" EntityType="Self.ScanResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sedation" EntityType="Self.Sedation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sex" EntityType="Self.Sex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sites" EntityType="Self.Sites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SourceOfPayment" EntityType="Self.SourceOfPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwPhysicians" EntityType="Self.vwPhysicians" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vwPhysicians].[PhysicianId] AS [PhysicianId], 
+[vwPhysicians].[DisplayName] AS [DisplayName]
+FROM [dbo].[vwPhysicians] AS [vwPhysicians]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwPhysicianSpecialtyList" EntityType="Self.vwPhysicianSpecialtyList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vwPhysicianSpecialtyList].[PhysicianSpecialtyId] AS [PhysicianSpecialtyId], 
+[vwPhysicianSpecialtyList].[DisplayName] AS [DisplayName]
+FROM [dbo].[vwPhysicianSpecialtyList] AS [vwPhysicianSpecialtyList]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_County_States" Association="Self.FK_County_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="County" EntitySet="County" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountyZipCodes_County" Association="Self.FK_CountyZipCodes_County">
+            <End Role="County" EntitySet="County" />
+            <End Role="CountyZipCodes" EntitySet="CountyZipCodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Physician_PhysicianLicensure" Association="Self.FK_Physician_PhysicianLicensure">
+            <End Role="PhysicianLicensure" EntitySet="PhysicianLicensure" />
+            <End Role="Physician" EntitySet="Physician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Physician_PhysicianSpecialty" Association="Self.FK_Physician_PhysicianSpecialty">
+            <End Role="PhysicianSpecialty" EntitySet="PhysicianSpecialty" />
+            <End Role="Physician" EntitySet="Physician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Physician_States" Association="Self.FK_Physician_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="Physician" EntitySet="Physician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicianPrefixCode_States" Association="Self.FK_PhysicianPrefixCode_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="PhysicianPrefixCode" EntitySet="PhysicianPrefixCode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicianSite_Physician" Association="Self.FK_PhysicianSite_Physician">
+            <End Role="Physician" EntitySet="Physician" />
+            <End Role="PhysicianSite" EntitySet="PhysicianSite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicianSite_Sites" Association="Self.FK_PhysicianSite_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="PhysicianSite" EntitySet="PhysicianSite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_AgeCode" Association="Self.FK_Scan_AgeCode">
+            <End Role="AgeCode" EntitySet="AgeCode" />
+            <End Role="Scan" EntitySet="Scan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_ClinicalStatus" Association="Self.FK_Scan_ClinicalStatus">
+            <End Role="ClinicalStatus" EntitySet="ClinicalStatus" />
+            <End Role="Scan" EntitySet="Scan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_County" Association="Self.FK_Scan_County">
+            <End Role="County" EntitySet="County" />
+            <End Role="Scan" EntitySet="Scan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_PatientStatus" Association="Self.FK_Scan_PatientStatus">
+            <End Role="PatientStatus" EntitySet="PatientStatus" />
+            <End Role="Scan" EntitySet="Scan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_PhysicianSite" Association="Self.FK_Scan_PhysicianSite">
+            <End Role="PhysicianSite" EntitySet="PhysicianSite" />
+            <End Role="Scan" EntitySet="Scan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_Sex" Association="Self.FK_Scan_Sex">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Scan" EntitySet="Scan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_Sites" Association="Self.FK_Scan_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="Scan" EntitySet="Scan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_SourceOfPayment" Association="Self.FK_Scan_SourceOfPayment">
+            <End Role="SourceOfPayment" EntitySet="SourceOfPayment" />
+            <End Role="Scan" EntitySet="Scan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScanResult_Scan" Association="Self.FK_ScanResult_Scan">
+            <End Role="Scan" EntitySet="Scan" />
+            <End Role="ScanResult" EntitySet="ScanResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScanResult_ScanComplete" Association="Self.FK_ScanResult_ScanComplete">
+            <End Role="ScanComplete" EntitySet="ScanComplete" />
+            <End Role="ScanResult" EntitySet="ScanResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScanResult_ScanContrast" Association="Self.FK_ScanResult_ScanContrast">
+            <End Role="ScanContrast" EntitySet="ScanContrast" />
+            <End Role="ScanResult" EntitySet="ScanResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScanResult_ScanRegion" Association="Self.FK_ScanResult_ScanRegion">
+            <End Role="ScanRegion" EntitySet="ScanRegion" />
+            <End Role="ScanResult" EntitySet="ScanResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScanResult_Sedation" Association="Self.FK_ScanResult_Sedation">
+            <End Role="Sedation" EntitySet="Sedation" />
+            <End Role="ScanResult" EntitySet="ScanResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sites_States" Association="Self.FK_Sites_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="Sites" EntitySet="Sites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SourceOfPayment_States" Association="Self.FK_SourceOfPayment_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="SourceOfPayment" EntitySet="SourceOfPayment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MHCC_MRIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AgeCode">
+          <Key>
+            <PropertyRef Name="AgeCodeId" />
+          </Key>
+          <Property Name="AgeCodeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubmissionAgeCodeId" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AgeCodeDescripition" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Scans" Relationship="Self.FK_Scan_AgeCode" FromRole="AgeCode" ToRole="Scan" />
+        </EntityType>
+        <EntityType Name="ClinicalStatu">
+          <Key>
+            <PropertyRef Name="ClinicalStatusId" />
+          </Key>
+          <Property Name="ClinicalStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClinicalStatusCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ClinicalStatusDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Scans" Relationship="Self.FK_Scan_ClinicalStatus" FromRole="ClinicalStatus" ToRole="Scan" />
+        </EntityType>
+        <EntityType Name="County">
+          <Key>
+            <PropertyRef Name="CountyId" />
+          </Key>
+          <Property Name="CountyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="CountyCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CountyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ExcludeZipCode" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="State" Relationship="Self.FK_County_States" FromRole="County" ToRole="States" />
+          <NavigationProperty Name="CountyZipCodes" Relationship="Self.FK_CountyZipCodes_County" FromRole="County" ToRole="CountyZipCodes" />
+          <NavigationProperty Name="Scans" Relationship="Self.FK_Scan_County" FromRole="County" ToRole="Scan" />
+        </EntityType>
+        <EntityType Name="CountyZipCode">
+          <Key>
+            <PropertyRef Name="CountyZipCodeId" />
+          </Key>
+          <Property Name="CountyZipCodeId" Type="Int32" Nullable="false" />
+          <Property Name="CountyId" Type="Int32" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="County" Relationship="Self.FK_CountyZipCodes_County" FromRole="CountyZipCodes" ToRole="County" />
+        </EntityType>
+        <EntityType Name="PatientStatu">
+          <Key>
+            <PropertyRef Name="PatientStatusId" />
+          </Key>
+          <Property Name="PatientStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientStatusCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PatientStatusDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Scans" Relationship="Self.FK_Scan_PatientStatus" FromRole="PatientStatus" ToRole="Scan" />
+        </EntityType>
+        <EntityType Name="Physician">
+          <Key>
+            <PropertyRef Name="PhysicianId" />
+          </Key>
+          <Property Name="PhysicianId" Type="Int32" Nullable="false" />
+          <Property Name="PhysicianSpecialtyId" Type="Int32" Nullable="false" />
+          <Property Name="LicenseNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Suffix" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AddressNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddressNumberSuffix" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="28" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddressSuffixType" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ZipCodeExtension" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="PhysicianLicensureId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PhysicianLicensure" Relationship="Self.FK_Physician_PhysicianLicensure" FromRole="Physician" ToRole="PhysicianLicensure" />
+          <NavigationProperty Name="PhysicianSpecialty" Relationship="Self.FK_Physician_PhysicianSpecialty" FromRole="Physician" ToRole="PhysicianSpecialty" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Physician_States" FromRole="Physician" ToRole="States" />
+          <NavigationProperty Name="PhysicianSites" Relationship="Self.FK_PhysicianSite_Physician" FromRole="Physician" ToRole="PhysicianSite" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhysicianLicensure">
+          <Key>
+            <PropertyRef Name="PhysicianLicensureId" />
+          </Key>
+          <Property Name="PhysicianLicensureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhysicianLicensureCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PhysicianLicensureDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Physicians" Relationship="Self.FK_Physician_PhysicianLicensure" FromRole="PhysicianLicensure" ToRole="Physician" />
+        </EntityType>
+        <EntityType Name="PhysicianPrefixCode">
+          <Key>
+            <PropertyRef Name="PhysicianPrefixCodesId" />
+          </Key>
+          <Property Name="PhysicianPrefixCodesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrefixCode" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PrefixName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="State" Relationship="Self.FK_PhysicianPrefixCode_States" FromRole="PhysicianPrefixCode" ToRole="States" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhysicianSite">
+          <Key>
+            <PropertyRef Name="PhysicianSiteId" />
+          </Key>
+          <Property Name="PhysicianSiteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhysicianId" Type="Int32" Nullable="false" />
+          <Property Name="SiteId" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Physician" Relationship="Self.FK_PhysicianSite_Physician" FromRole="PhysicianSite" ToRole="Physician" />
+          <NavigationProperty Name="Site" Relationship="Self.FK_PhysicianSite_Sites" FromRole="PhysicianSite" ToRole="Sites" />
+          <NavigationProperty Name="Scans" Relationship="Self.FK_Scan_PhysicianSite" FromRole="PhysicianSite" ToRole="Scan" />
+        </EntityType>
+        <EntityType Name="PhysicianSpecialty">
+          <Key>
+            <PropertyRef Name="PhysicianSpecialtyId" />
+          </Key>
+          <Property Name="PhysicianSpecialtyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhysicianSpecialtyCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Category1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Physicians" Relationship="Self.FK_Physician_PhysicianSpecialty" FromRole="PhysicianSpecialty" ToRole="Physician" />
+        </EntityType>
+        <EntityType Name="Scan">
+          <Key>
+            <PropertyRef Name="ScanId" />
+          </Key>
+          <Property Name="ScanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByGUID" Type="Guid" Nullable="false" />
+          <Property Name="CreatedByDisplayName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedByUserId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SiteId" Type="Int32" Nullable="false" />
+          <Property Name="DateOfScan" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AgeOfPatient" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AgeCodeId" Type="Int32" Nullable="false" />
+          <Property Name="SexId" Type="Int32" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CountyId" Type="Int32" Nullable="false" />
+          <Property Name="PatientStatusId" Type="Int32" Nullable="false" />
+          <Property Name="ClinicalStatusId" Type="Int32" Nullable="false" />
+          <Property Name="PhysicianSiteId" Type="Int32" Nullable="false" />
+          <Property Name="SourceOfPaymentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AgeCode" Relationship="Self.FK_Scan_AgeCode" FromRole="Scan" ToRole="AgeCode" />
+          <NavigationProperty Name="ClinicalStatu" Relationship="Self.FK_Scan_ClinicalStatus" FromRole="Scan" ToRole="ClinicalStatus" />
+          <NavigationProperty Name="County" Relationship="Self.FK_Scan_County" FromRole="Scan" ToRole="County" />
+          <NavigationProperty Name="PatientStatu" Relationship="Self.FK_Scan_PatientStatus" FromRole="Scan" ToRole="PatientStatus" />
+          <NavigationProperty Name="PhysicianSite" Relationship="Self.FK_Scan_PhysicianSite" FromRole="Scan" ToRole="PhysicianSite" />
+          <NavigationProperty Name="Sex" Relationship="Self.FK_Scan_Sex" FromRole="Scan" ToRole="Sex" />
+          <NavigationProperty Name="Site" Relationship="Self.FK_Scan_Sites" FromRole="Scan" ToRole="Sites" />
+          <NavigationProperty Name="SourceOfPayment" Relationship="Self.FK_Scan_SourceOfPayment" FromRole="Scan" ToRole="SourceOfPayment" />
+          <NavigationProperty Name="ScanResults" Relationship="Self.FK_ScanResult_Scan" FromRole="Scan" ToRole="ScanResult" />
+          <Property Name="PatientName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MedicalRecordNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ScanDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ScanUpdated" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScanComplete">
+          <Key>
+            <PropertyRef Name="ScanCompleteId" />
+          </Key>
+          <Property Name="ScanCompleteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScanCompleteCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ScanCompleteDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ScanResults" Relationship="Self.FK_ScanResult_ScanComplete" FromRole="ScanComplete" ToRole="ScanResult" />
+        </EntityType>
+        <EntityType Name="ScanContrast">
+          <Key>
+            <PropertyRef Name="ScanContrastId" />
+          </Key>
+          <Property Name="ScanContrastId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScanContrastCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ScanContrastDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ScanResults" Relationship="Self.FK_ScanResult_ScanContrast" FromRole="ScanContrast" ToRole="ScanResult" />
+        </EntityType>
+        <EntityType Name="ScanRegion">
+          <Key>
+            <PropertyRef Name="ScanRegionId" />
+          </Key>
+          <Property Name="ScanRegionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScanRegionCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ScanRegionDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ScanResults" Relationship="Self.FK_ScanResult_ScanRegion" FromRole="ScanRegion" ToRole="ScanResult" />
+        </EntityType>
+        <EntityType Name="ScanResult">
+          <Key>
+            <PropertyRef Name="ScanResultId" />
+          </Key>
+          <Property Name="ScanResultId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScanId" Type="Int32" Nullable="false" />
+          <Property Name="ScanRegionId" Type="Int32" />
+          <Property Name="SedationId" Type="Int32" />
+          <Property Name="ScanContrastId" Type="Int32" />
+          <Property Name="ScanCompleteId" Type="Int32" />
+          <NavigationProperty Name="Scan" Relationship="Self.FK_ScanResult_Scan" FromRole="ScanResult" ToRole="Scan" />
+          <NavigationProperty Name="ScanComplete" Relationship="Self.FK_ScanResult_ScanComplete" FromRole="ScanResult" ToRole="ScanComplete" />
+          <NavigationProperty Name="ScanContrast" Relationship="Self.FK_ScanResult_ScanContrast" FromRole="ScanResult" ToRole="ScanContrast" />
+          <NavigationProperty Name="ScanRegion" Relationship="Self.FK_ScanResult_ScanRegion" FromRole="ScanResult" ToRole="ScanRegion" />
+          <NavigationProperty Name="Sedation" Relationship="Self.FK_ScanResult_Sedation" FromRole="ScanResult" ToRole="Sedation" />
+        </EntityType>
+        <EntityType Name="Sedation">
+          <Key>
+            <PropertyRef Name="SedationId" />
+          </Key>
+          <Property Name="SedationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SedationCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SedationDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ScanResults" Relationship="Self.FK_ScanResult_Sedation" FromRole="Sedation" ToRole="ScanResult" />
+        </EntityType>
+        <EntityType Name="Sex">
+          <Key>
+            <PropertyRef Name="SexId" />
+          </Key>
+          <Property Name="SexId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SexCode" Type="Int32" Nullable="false" />
+          <Property Name="SexDescription" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Scans" Relationship="Self.FK_Scan_Sex" FromRole="Sex" ToRole="Scan" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="SiteId" />
+          </Key>
+          <Property Name="SiteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SiteName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="ServiceIdNumber" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="FromEmailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ToEmailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmailSubject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ADGroupAdmin" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ADGroupUserEntry" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PhysicianSites" Relationship="Self.FK_PhysicianSite_Sites" FromRole="Sites" ToRole="PhysicianSite" />
+          <NavigationProperty Name="Scans" Relationship="Self.FK_Scan_Sites" FromRole="Sites" ToRole="Scan" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Sites_States" FromRole="Sites" ToRole="States" />
+          <Property Name="ADGroupModifyEntry" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ADGroupSubmissionReport" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ADGroupReport" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SourceOfPayment">
+          <Key>
+            <PropertyRef Name="SourceOfPaymentId" />
+          </Key>
+          <Property Name="SourceOfPaymentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SourceCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SourceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Scans" Relationship="Self.FK_Scan_SourceOfPayment" FromRole="SourceOfPayment" ToRole="Scan" />
+          <NavigationProperty Name="State" Relationship="Self.FK_SourceOfPayment_States" FromRole="SourceOfPayment" ToRole="States" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Counties" Relationship="Self.FK_County_States" FromRole="States" ToRole="County" />
+          <NavigationProperty Name="Physicians" Relationship="Self.FK_Physician_States" FromRole="States" ToRole="Physician" />
+          <NavigationProperty Name="PhysicianPrefixCodes" Relationship="Self.FK_PhysicianPrefixCode_States" FromRole="States" ToRole="PhysicianPrefixCode" />
+          <NavigationProperty Name="Sites" Relationship="Self.FK_Sites_States" FromRole="States" ToRole="Sites" />
+          <NavigationProperty Name="SourceOfPayments" Relationship="Self.FK_SourceOfPayment_States" FromRole="States" ToRole="SourceOfPayment" />
+        </EntityType>
+        <Association Name="FK_Scan_AgeCode">
+          <End Role="AgeCode" Type="Self.AgeCode" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeCode">
+              <PropertyRef Name="AgeCodeId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="AgeCodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_ClinicalStatus">
+          <End Role="ClinicalStatus" Type="Self.ClinicalStatu" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClinicalStatus">
+              <PropertyRef Name="ClinicalStatusId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="ClinicalStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_County_States">
+          <End Role="States" Type="Self.State" Multiplicity="1" />
+          <End Role="County" Type="Self.County" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="County">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountyZipCodes_County">
+          <End Role="County" Type="Self.County" Multiplicity="1" />
+          <End Role="CountyZipCodes" Type="Self.CountyZipCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="County">
+              <PropertyRef Name="CountyId" />
+            </Principal>
+            <Dependent Role="CountyZipCodes">
+              <PropertyRef Name="CountyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_County">
+          <End Role="County" Type="Self.County" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="County">
+              <PropertyRef Name="CountyId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="CountyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_PatientStatus">
+          <End Role="PatientStatus" Type="Self.PatientStatu" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientStatus">
+              <PropertyRef Name="PatientStatusId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="PatientStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Physician_PhysicianLicensure">
+          <End Role="PhysicianLicensure" Type="Self.PhysicianLicensure" Multiplicity="1" />
+          <End Role="Physician" Type="Self.Physician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhysicianLicensure">
+              <PropertyRef Name="PhysicianLicensureId" />
+            </Principal>
+            <Dependent Role="Physician">
+              <PropertyRef Name="PhysicianLicensureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Physician_PhysicianSpecialty">
+          <End Role="PhysicianSpecialty" Type="Self.PhysicianSpecialty" Multiplicity="1" />
+          <End Role="Physician" Type="Self.Physician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhysicianSpecialty">
+              <PropertyRef Name="PhysicianSpecialtyId" />
+            </Principal>
+            <Dependent Role="Physician">
+              <PropertyRef Name="PhysicianSpecialtyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Physician_States">
+          <End Role="States" Type="Self.State" Multiplicity="1" />
+          <End Role="Physician" Type="Self.Physician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="Physician">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicianSite_Physician">
+          <End Role="Physician" Type="Self.Physician" Multiplicity="1" />
+          <End Role="PhysicianSite" Type="Self.PhysicianSite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Physician">
+              <PropertyRef Name="PhysicianId" />
+            </Principal>
+            <Dependent Role="PhysicianSite">
+              <PropertyRef Name="PhysicianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicianPrefixCode_States">
+          <End Role="States" Type="Self.State" Multiplicity="1" />
+          <End Role="PhysicianPrefixCode" Type="Self.PhysicianPrefixCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="PhysicianPrefixCode">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicianSite_Sites">
+          <End Role="Sites" Type="Self.Site" Multiplicity="1" />
+          <End Role="PhysicianSite" Type="Self.PhysicianSite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="SiteId" />
+            </Principal>
+            <Dependent Role="PhysicianSite">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_PhysicianSite">
+          <End Role="PhysicianSite" Type="Self.PhysicianSite" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhysicianSite">
+              <PropertyRef Name="PhysicianSiteId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="PhysicianSiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_Sex">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="SexId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_Sites">
+          <End Role="Sites" Type="Self.Site" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="SiteId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scan_SourceOfPayment">
+          <End Role="SourceOfPayment" Type="Self.SourceOfPayment" Multiplicity="1" />
+          <End Role="Scan" Type="Self.Scan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SourceOfPayment">
+              <PropertyRef Name="SourceOfPaymentId" />
+            </Principal>
+            <Dependent Role="Scan">
+              <PropertyRef Name="SourceOfPaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScanResult_Scan">
+          <End Role="Scan" Type="Self.Scan" Multiplicity="1" />
+          <End Role="ScanResult" Type="Self.ScanResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scan">
+              <PropertyRef Name="ScanId" />
+            </Principal>
+            <Dependent Role="ScanResult">
+              <PropertyRef Name="ScanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScanResult_ScanComplete">
+          <End Role="ScanComplete" Type="Self.ScanComplete" Multiplicity="0..1" />
+          <End Role="ScanResult" Type="Self.ScanResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScanComplete">
+              <PropertyRef Name="ScanCompleteId" />
+            </Principal>
+            <Dependent Role="ScanResult">
+              <PropertyRef Name="ScanCompleteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScanResult_ScanContrast">
+          <End Role="ScanContrast" Type="Self.ScanContrast" Multiplicity="0..1" />
+          <End Role="ScanResult" Type="Self.ScanResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScanContrast">
+              <PropertyRef Name="ScanContrastId" />
+            </Principal>
+            <Dependent Role="ScanResult">
+              <PropertyRef Name="ScanContrastId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScanResult_ScanRegion">
+          <End Role="ScanRegion" Type="Self.ScanRegion" Multiplicity="0..1" />
+          <End Role="ScanResult" Type="Self.ScanResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScanRegion">
+              <PropertyRef Name="ScanRegionId" />
+            </Principal>
+            <Dependent Role="ScanResult">
+              <PropertyRef Name="ScanRegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScanResult_Sedation">
+          <End Role="Sedation" Type="Self.Sedation" Multiplicity="0..1" />
+          <End Role="ScanResult" Type="Self.ScanResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sedation">
+              <PropertyRef Name="SedationId" />
+            </Principal>
+            <Dependent Role="ScanResult">
+              <PropertyRef Name="SedationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sites_States">
+          <End Role="States" Type="Self.State" Multiplicity="1" />
+          <End Role="Sites" Type="Self.Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="Sites">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SourceOfPayment_States">
+          <End Role="States" Type="Self.State" Multiplicity="1" />
+          <End Role="SourceOfPayment" Type="Self.SourceOfPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="SourceOfPayment">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MHCC_MRIEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AgeCodes" EntityType="Self.AgeCode" />
+          <EntitySet Name="ClinicalStatus" EntityType="Self.ClinicalStatu" />
+          <EntitySet Name="Counties" EntityType="Self.County" />
+          <EntitySet Name="CountyZipCodes" EntityType="Self.CountyZipCode" />
+          <EntitySet Name="PatientStatus" EntityType="Self.PatientStatu" />
+          <EntitySet Name="Physicians" EntityType="Self.Physician" />
+          <EntitySet Name="PhysicianLicensures" EntityType="Self.PhysicianLicensure" />
+          <EntitySet Name="PhysicianPrefixCodes" EntityType="Self.PhysicianPrefixCode" />
+          <EntitySet Name="PhysicianSites" EntityType="Self.PhysicianSite" />
+          <EntitySet Name="PhysicianSpecialties" EntityType="Self.PhysicianSpecialty" />
+          <EntitySet Name="Scans" EntityType="Self.Scan" />
+          <EntitySet Name="ScanCompletes" EntityType="Self.ScanComplete" />
+          <EntitySet Name="ScanContrasts" EntityType="Self.ScanContrast" />
+          <EntitySet Name="ScanRegions" EntityType="Self.ScanRegion" />
+          <EntitySet Name="ScanResults" EntityType="Self.ScanResult" />
+          <EntitySet Name="Sedations" EntityType="Self.Sedation" />
+          <EntitySet Name="Sexes" EntityType="Self.Sex" />
+          <EntitySet Name="Sites" EntityType="Self.Site" />
+          <EntitySet Name="SourceOfPayments" EntityType="Self.SourceOfPayment" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <AssociationSet Name="FK_Scan_AgeCode" Association="Self.FK_Scan_AgeCode">
+            <End Role="AgeCode" EntitySet="AgeCodes" />
+            <End Role="Scan" EntitySet="Scans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_ClinicalStatus" Association="Self.FK_Scan_ClinicalStatus">
+            <End Role="ClinicalStatus" EntitySet="ClinicalStatus" />
+            <End Role="Scan" EntitySet="Scans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_County_States" Association="Self.FK_County_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="County" EntitySet="Counties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountyZipCodes_County" Association="Self.FK_CountyZipCodes_County">
+            <End Role="County" EntitySet="Counties" />
+            <End Role="CountyZipCodes" EntitySet="CountyZipCodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_County" Association="Self.FK_Scan_County">
+            <End Role="County" EntitySet="Counties" />
+            <End Role="Scan" EntitySet="Scans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_PatientStatus" Association="Self.FK_Scan_PatientStatus">
+            <End Role="PatientStatus" EntitySet="PatientStatus" />
+            <End Role="Scan" EntitySet="Scans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Physician_PhysicianLicensure" Association="Self.FK_Physician_PhysicianLicensure">
+            <End Role="PhysicianLicensure" EntitySet="PhysicianLicensures" />
+            <End Role="Physician" EntitySet="Physicians" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Physician_PhysicianSpecialty" Association="Self.FK_Physician_PhysicianSpecialty">
+            <End Role="PhysicianSpecialty" EntitySet="PhysicianSpecialties" />
+            <End Role="Physician" EntitySet="Physicians" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Physician_States" Association="Self.FK_Physician_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="Physician" EntitySet="Physicians" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicianSite_Physician" Association="Self.FK_PhysicianSite_Physician">
+            <End Role="Physician" EntitySet="Physicians" />
+            <End Role="PhysicianSite" EntitySet="PhysicianSites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicianPrefixCode_States" Association="Self.FK_PhysicianPrefixCode_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="PhysicianPrefixCode" EntitySet="PhysicianPrefixCodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicianSite_Sites" Association="Self.FK_PhysicianSite_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="PhysicianSite" EntitySet="PhysicianSites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_PhysicianSite" Association="Self.FK_Scan_PhysicianSite">
+            <End Role="PhysicianSite" EntitySet="PhysicianSites" />
+            <End Role="Scan" EntitySet="Scans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_Sex" Association="Self.FK_Scan_Sex">
+            <End Role="Sex" EntitySet="Sexes" />
+            <End Role="Scan" EntitySet="Scans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_Sites" Association="Self.FK_Scan_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="Scan" EntitySet="Scans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scan_SourceOfPayment" Association="Self.FK_Scan_SourceOfPayment">
+            <End Role="SourceOfPayment" EntitySet="SourceOfPayments" />
+            <End Role="Scan" EntitySet="Scans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScanResult_Scan" Association="Self.FK_ScanResult_Scan">
+            <End Role="Scan" EntitySet="Scans" />
+            <End Role="ScanResult" EntitySet="ScanResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScanResult_ScanComplete" Association="Self.FK_ScanResult_ScanComplete">
+            <End Role="ScanComplete" EntitySet="ScanCompletes" />
+            <End Role="ScanResult" EntitySet="ScanResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScanResult_ScanContrast" Association="Self.FK_ScanResult_ScanContrast">
+            <End Role="ScanContrast" EntitySet="ScanContrasts" />
+            <End Role="ScanResult" EntitySet="ScanResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScanResult_ScanRegion" Association="Self.FK_ScanResult_ScanRegion">
+            <End Role="ScanRegion" EntitySet="ScanRegions" />
+            <End Role="ScanResult" EntitySet="ScanResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScanResult_Sedation" Association="Self.FK_ScanResult_Sedation">
+            <End Role="Sedation" EntitySet="Sedations" />
+            <End Role="ScanResult" EntitySet="ScanResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sites_States" Association="Self.FK_Sites_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="Sites" EntitySet="Sites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SourceOfPayment_States" Association="Self.FK_SourceOfPayment_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="SourceOfPayment" EntitySet="SourceOfPayments" />
+          </AssociationSet>
+          <EntitySet Name="OraclePatientExports" EntityType="MHCC_MRIModel.OraclePatientExport" />
+          <EntitySet Name="vwPhysicianSpecialtyLists" EntityType="MHCC_MRIModel.vwPhysicianSpecialtyList" />
+          <EntitySet Name="vwPhysicians" EntityType="MHCC_MRIModel.vwPhysician" />
+        </EntityContainer>
+        <EntityType Name="OraclePatientExport">
+          <Key>
+            <PropertyRef Name="OraclePatientExportId" />
+          </Key>
+          <Property Name="OraclePatientExportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateOfScan" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PatientName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MedicalRecordNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionOfScan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="Int32" />
+          <Property Name="ZipCode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="PatientStatus" Type="Int32" />
+          <Property Name="PatientDOB" Type="DateTime" Precision="3" />
+          <Property Name="AgeOfPatient" Type="Int32" />
+          <Property Name="AgeCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MainSiteCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwPhysicianSpecialtyList">
+          <Key>
+            <PropertyRef Name="PhysicianSpecialtyId" />
+          </Key>
+          <Property Name="PhysicianSpecialtyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayName" Type="String" MaxLength="129" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwPhysician">
+          <Key>
+            <PropertyRef Name="PhysicianId" />
+          </Key>
+          <Property Name="PhysicianId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayName" Type="String" MaxLength="86" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MHCC_MRIModelStoreContainer" CdmEntityContainer="MHCC_MRIEntities1">
+          <EntitySetMapping Name="AgeCodes">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.AgeCode">
+              <MappingFragment StoreEntitySet="AgeCode">
+                <ScalarProperty Name="AgeCodeId" ColumnName="AgeCodeId" />
+                <ScalarProperty Name="SubmissionAgeCodeId" ColumnName="SubmissionAgeCodeId" />
+                <ScalarProperty Name="AgeCodeDescripition" ColumnName="AgeCodeDescripition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClinicalStatus">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.ClinicalStatu">
+              <MappingFragment StoreEntitySet="ClinicalStatus">
+                <ScalarProperty Name="ClinicalStatusId" ColumnName="ClinicalStatusId" />
+                <ScalarProperty Name="ClinicalStatusCode" ColumnName="ClinicalStatusCode" />
+                <ScalarProperty Name="ClinicalStatusDescription" ColumnName="ClinicalStatusDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Counties">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.County">
+              <MappingFragment StoreEntitySet="County">
+                <ScalarProperty Name="CountyId" ColumnName="CountyId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CountyCode" ColumnName="CountyCode" />
+                <ScalarProperty Name="CountyName" ColumnName="CountyName" />
+                <ScalarProperty Name="ExcludeZipCode" ColumnName="ExcludeZipCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountyZipCodes">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.CountyZipCode">
+              <MappingFragment StoreEntitySet="CountyZipCodes">
+                <ScalarProperty Name="CountyZipCodeId" ColumnName="CountyZipCodeId" />
+                <ScalarProperty Name="CountyId" ColumnName="CountyId" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientStatus">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.PatientStatu">
+              <MappingFragment StoreEntitySet="PatientStatus">
+                <ScalarProperty Name="PatientStatusId" ColumnName="PatientStatusId" />
+                <ScalarProperty Name="PatientStatusCode" ColumnName="PatientStatusCode" />
+                <ScalarProperty Name="PatientStatusDescription" ColumnName="PatientStatusDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Physicians">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.Physician">
+              <MappingFragment StoreEntitySet="Physician">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="PhysicianId" ColumnName="PhysicianId" />
+                <ScalarProperty Name="PhysicianSpecialtyId" ColumnName="PhysicianSpecialtyId" />
+                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="AddressNumber" ColumnName="AddressNumber" />
+                <ScalarProperty Name="AddressNumberSuffix" ColumnName="AddressNumberSuffix" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressSuffixType" ColumnName="AddressSuffixType" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="ZipCodeExtension" ColumnName="ZipCodeExtension" />
+                <ScalarProperty Name="PhysicianLicensureId" ColumnName="PhysicianLicensureId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhysicianLicensures">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.PhysicianLicensure">
+              <MappingFragment StoreEntitySet="PhysicianLicensure">
+                <ScalarProperty Name="PhysicianLicensureId" ColumnName="PhysicianLicensureId" />
+                <ScalarProperty Name="PhysicianLicensureCode" ColumnName="PhysicianLicensureCode" />
+                <ScalarProperty Name="PhysicianLicensureDescription" ColumnName="PhysicianLicensureDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhysicianPrefixCodes">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.PhysicianPrefixCode">
+              <MappingFragment StoreEntitySet="PhysicianPrefixCode">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="PhysicianPrefixCodesId" ColumnName="PhysicianPrefixCodesId" />
+                <ScalarProperty Name="PrefixCode" ColumnName="PrefixCode" />
+                <ScalarProperty Name="PrefixName" ColumnName="PrefixName" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhysicianSites">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.PhysicianSite">
+              <MappingFragment StoreEntitySet="PhysicianSite">
+                <ScalarProperty Name="PhysicianSiteId" ColumnName="PhysicianSiteId" />
+                <ScalarProperty Name="PhysicianId" ColumnName="PhysicianId" />
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhysicianSpecialties">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.PhysicianSpecialty">
+              <MappingFragment StoreEntitySet="PhysicianSpecialty">
+                <ScalarProperty Name="PhysicianSpecialtyId" ColumnName="PhysicianSpecialtyId" />
+                <ScalarProperty Name="PhysicianSpecialtyCode" ColumnName="PhysicianSpecialtyCode" />
+                <ScalarProperty Name="Category1" ColumnName="Category1" />
+                <ScalarProperty Name="Category2" ColumnName="Category2" />
+                <ScalarProperty Name="Category3" ColumnName="Category3" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scans">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.Scan">
+              <MappingFragment StoreEntitySet="Scan">
+                <ScalarProperty Name="ScanUpdated" ColumnName="ScanUpdated" />
+                <ScalarProperty Name="ScanDescription" ColumnName="ScanDescription" />
+                <ScalarProperty Name="MedicalRecordNumber" ColumnName="MedicalRecordNumber" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="ScanId" ColumnName="ScanId" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="CreatedByGUID" ColumnName="CreatedByGUID" />
+                <ScalarProperty Name="CreatedByDisplayName" ColumnName="CreatedByDisplayName" />
+                <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="DateOfScan" ColumnName="DateOfScan" />
+                <ScalarProperty Name="AgeOfPatient" ColumnName="AgeOfPatient" />
+                <ScalarProperty Name="AgeCodeId" ColumnName="AgeCodeId" />
+                <ScalarProperty Name="SexId" ColumnName="SexId" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="CountyId" ColumnName="CountyId" />
+                <ScalarProperty Name="PatientStatusId" ColumnName="PatientStatusId" />
+                <ScalarProperty Name="ClinicalStatusId" ColumnName="ClinicalStatusId" />
+                <ScalarProperty Name="PhysicianSiteId" ColumnName="PhysicianSiteId" />
+                <ScalarProperty Name="SourceOfPaymentId" ColumnName="SourceOfPaymentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScanCompletes">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.ScanComplete">
+              <MappingFragment StoreEntitySet="ScanComplete">
+                <ScalarProperty Name="ScanCompleteId" ColumnName="ScanCompleteId" />
+                <ScalarProperty Name="ScanCompleteCode" ColumnName="ScanCompleteCode" />
+                <ScalarProperty Name="ScanCompleteDescription" ColumnName="ScanCompleteDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScanContrasts">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.ScanContrast">
+              <MappingFragment StoreEntitySet="ScanContrast">
+                <ScalarProperty Name="ScanContrastId" ColumnName="ScanContrastId" />
+                <ScalarProperty Name="ScanContrastCode" ColumnName="ScanContrastCode" />
+                <ScalarProperty Name="ScanContrastDescription" ColumnName="ScanContrastDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScanRegions">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.ScanRegion">
+              <MappingFragment StoreEntitySet="ScanRegion">
+                <ScalarProperty Name="ScanRegionId" ColumnName="ScanRegionId" />
+                <ScalarProperty Name="ScanRegionCode" ColumnName="ScanRegionCode" />
+                <ScalarProperty Name="ScanRegionDescription" ColumnName="ScanRegionDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScanResults">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.ScanResult">
+              <MappingFragment StoreEntitySet="ScanResult">
+                <ScalarProperty Name="ScanResultId" ColumnName="ScanResultId" />
+                <ScalarProperty Name="ScanId" ColumnName="ScanId" />
+                <ScalarProperty Name="ScanRegionId" ColumnName="ScanRegionId" />
+                <ScalarProperty Name="SedationId" ColumnName="SedationId" />
+                <ScalarProperty Name="ScanContrastId" ColumnName="ScanContrastId" />
+                <ScalarProperty Name="ScanCompleteId" ColumnName="ScanCompleteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sedations">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.Sedation">
+              <MappingFragment StoreEntitySet="Sedation">
+                <ScalarProperty Name="SedationId" ColumnName="SedationId" />
+                <ScalarProperty Name="SedationCode" ColumnName="SedationCode" />
+                <ScalarProperty Name="SedationDescription" ColumnName="SedationDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sexes">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.Sex">
+              <MappingFragment StoreEntitySet="Sex">
+                <ScalarProperty Name="SexId" ColumnName="SexId" />
+                <ScalarProperty Name="SexCode" ColumnName="SexCode" />
+                <ScalarProperty Name="SexDescription" ColumnName="SexDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.Site">
+              <MappingFragment StoreEntitySet="Sites">
+                <ScalarProperty Name="ADGroupReport" ColumnName="ADGroupReport" />
+                <ScalarProperty Name="ADGroupSubmissionReport" ColumnName="ADGroupSubmissionReport" />
+                <ScalarProperty Name="ADGroupModifyEntry" ColumnName="ADGroupModifyEntry" />
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="ServiceIdNumber" ColumnName="ServiceIdNumber" />
+                <ScalarProperty Name="FromEmailAddress" ColumnName="FromEmailAddress" />
+                <ScalarProperty Name="ToEmailAddress" ColumnName="ToEmailAddress" />
+                <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+                <ScalarProperty Name="ADGroupAdmin" ColumnName="ADGroupAdmin" />
+                <ScalarProperty Name="ADGroupUserEntry" ColumnName="ADGroupUserEntry" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SourceOfPayments">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.SourceOfPayment">
+              <MappingFragment StoreEntitySet="SourceOfPayment">
+                <ScalarProperty Name="SourceOfPaymentId" ColumnName="SourceOfPaymentId" />
+                <ScalarProperty Name="SourceCode" ColumnName="SourceCode" />
+                <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.State">
+              <MappingFragment StoreEntitySet="States">
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OraclePatientExports">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.OraclePatientExport">
+              <MappingFragment StoreEntitySet="OraclePatientExport">
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="MainSiteCode" ColumnName="MainSiteCode" />
+                <ScalarProperty Name="AgeCode" ColumnName="AgeCode" />
+                <ScalarProperty Name="AgeOfPatient" ColumnName="AgeOfPatient" />
+                <ScalarProperty Name="PatientDOB" ColumnName="PatientDOB" />
+                <ScalarProperty Name="PatientStatus" ColumnName="PatientStatus" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="DescriptionOfScan" ColumnName="DescriptionOfScan" />
+                <ScalarProperty Name="MedicalRecordNumber" ColumnName="MedicalRecordNumber" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="DateOfScan" ColumnName="DateOfScan" />
+                <ScalarProperty Name="OraclePatientExportId" ColumnName="OraclePatientExportId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwPhysicianSpecialtyLists">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.vwPhysicianSpecialtyList">
+              <MappingFragment StoreEntitySet="vwPhysicianSpecialtyList">
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="PhysicianSpecialtyId" ColumnName="PhysicianSpecialtyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwPhysicians">
+            <EntityTypeMapping TypeName="MHCC_MRIModel.vwPhysician">
+              <MappingFragment StoreEntitySet="vwPhysicians">
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="PhysicianId" ColumnName="PhysicianId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
